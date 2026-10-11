@@ -13,3 +13,5 @@ Case Study:TimaPay
 READ COMMITTED and SERIALIZABLE isolation levels were configured using SET SESSION CHARACTERISTICS. Both returned the same results in a single-session test. Under concurrent access, READ COMMITTED would permit phantom reads while SERIALIZABLE would prevent them.
 
 Balance before rollback: X. Rollback executed. Balance after rollback: X. Rollback successfully reversed all changes
+
+SELECT FOR UPDATE locks the row during the transaction. Any other session trying to update ACC001 simultaneously would be blocked until this transaction commits. This prevents lost-update anomalies
