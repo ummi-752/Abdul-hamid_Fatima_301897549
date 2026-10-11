@@ -14,4 +14,4 @@ READ COMMITTED and SERIALIZABLE isolation levels were configured using SET SESSI
 
 Balance before rollback: X. Rollback executed. Balance after rollback: X. Rollback successfully reversed all changes
 
-SELECT FOR UPDATE locks the row during the transaction. Any other session trying to update ACC001 simultaneously would be blocked until this transaction commits. This prevents lost-update anomalies
+SELECT FOR UPDATE was used to lock the ACC001 row during a transaction. pgAdmin operates in autocommit mode, so the lock was acquired and released within the same statement. In a production scenario with two concurrent sessions, the second session would block until the first commits — preventing lost-update anomalies
