@@ -3,3 +3,4 @@ db.transaction_logs.createIndex(
   { name: "idx_account_timestamp" }
 );
 
+
