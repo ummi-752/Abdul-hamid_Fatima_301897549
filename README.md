@@ -1,4 +1,5 @@
 # Advanced Database Systems Portfolio
+Student Name: Fatima Abdul-hamid
 Course: MIT 8103 Advanced Database Systems  
 Session: 2026/2027  
 Case Study:TimaPay — Digital Banking and Fintech Platform
@@ -26,4 +27,4 @@ System administrators handle database configuration, backups, and monitoring.
 ## How to Run the MongoDB Scripts
 1. Install MongoDB 7
 2. Open mongosh
-3. Run schema-validation.js from portfolio-4-nosql/
+3. Run schema-validation.js from portfolio-4-nosql/ 
