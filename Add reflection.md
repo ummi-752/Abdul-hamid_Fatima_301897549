@@ -1,8 +1,8 @@
-Individual Technical Reflection
+**Individual Technical Reflection**
 
-Student: Fatima Abdulhamid Course: 
-
-MIT 8103 Advanced Database Systems Case Study: TimaPay -  Digital Banking Platform. 
+Student Name: Fatima Abdulhamid 
+Course: MIT 8103 Advanced Database Systems 
+Case Study: TimaPay - Digital Banking Platform. 
 
 **Portfolio 1** - **Database Design Decisions**
 
