@@ -32,7 +32,7 @@ The ACID properties transitioned from abstract database theory into tangible mec
 
 The most important demonstration was executing a fund transfer, proving that both the debit and credit updates commit atomically. If one leg fails, both are rolled back entirely, preventing money from mysteriously disappearing or being created.
 
-I tested READ COMMITTED and SERIALIZABLE isolation levels. The key distinction is that SERIALIZABLE prevents phantom readsâ€”if a second query runs in the same transaction, it views a perfectly consistent snapshot of data, even if another concurrent transaction successfully inserted rows in the interim.
+I tested READ COMMITTED and SERIALIZABLE isolation levels. The key distinction is that SERIALIZABLE prevents phantom reads if a second query runs in the same transaction, it views a perfectly consistent snapshot of data, even if another concurrent transaction successfully inserted rows in the interim.
 
 The savings_no_overdraft constraint violation vividly demonstrated the Consistency property: the database rejected an invalid balance state and rolled back the entire operation cleanly.
 
@@ -42,7 +42,7 @@ Challenge: pgAdmin operates in autocommit mode by default, which caused BEGIN an
 
 The defining design decision in MongoDB was implementing strict JSON Schema validation rules. I chose to enforce mandatory fields (transaction_id, account_number, amount, currency, timestamp, schema_version) at the database level rather than relying solely on application-level validation, mirroring the NOT NULL constraints used in PostgreSQL.
 
-The key trade-off I identified between PostgreSQL and MongoDB lies in schema evolution. Adding a new metadata field in MongoDB requires zero schema migrationâ€”documents simply adopt the new field organically going forward. In contrast, altering a PostgreSQL table requires a blocking or non-blocking ALTER TABLE migration.
+The key trade-off I identified between PostgreSQL and MongoDB lies in schema evolution. Adding a new metadata field in MongoDB requires zero schema migration documents simply adopt the new field organically going forward. In contrast, altering a PostgreSQL table requires a blocking or non-blocking ALTER TABLE migration.
 
 Challenge: Multi-document transactions require a replica set architecture in MongoDB; a standalone instance does not support them natively. Recognizing this constraint highlighted that in a production environment, TimaPays MongoDB tier must be deployed as at least a 3-node replica set.
 
